@@ -41,7 +41,7 @@ class App extends Component {
   }
 
   fetchTop100() {
-    axios.get(`${HOST_PREFIX}api/v1/links/most_popular`)
+    axios.get(`${HOST_PREFIX}/api/v1/links/most_popular`)
     .then(response => {
       let topLinks = response.data
       this.setState({topLinks});
