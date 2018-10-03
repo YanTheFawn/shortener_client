@@ -51,7 +51,7 @@ class App extends Component {
   renderShortenedUrl() {
     if(this.state.shortenedUrl) {
     return (
-      <h1> Shortened Url Is {this.state.shortenedUrl} </h1>
+      <h1 className="shortened-url-declaration"> Shortened Url is <span class="shortened-url"> {this.state.shortenedUrl}</span> </h1>
     );
     }
   }
@@ -60,11 +60,11 @@ class App extends Component {
     if(this.state.topLinks) {
       let { topLinks } = this.state;
 
-      let linkItems = topLinks.map((link, i) => <li key={i}>url: {link.url} access_count: {link.access_count}</li>);
+      let linkItems = topLinks.map((link, i) => <li key={i}><strong>url:</strong> {link.url} <strong>access_count</strong>: {link.access_count}</li>);
 
       return (
-        <div>
-          <div> Top 100 board </div>
+        <div className="top-links-board">
+          <div className="top-links-board-title"> Top 100 board </div>
           <ul>
             {linkItems}
           </ul>
@@ -83,7 +83,7 @@ class App extends Component {
           Enter a url (including 'https://') and click submit to have it shortened.
         </p>
         <form onSubmit={this.handleSubmit}>
-          <input id="shorten-url" placeholder="https://example.com" onChange={this.handleEnteredUrlChange}/>
+          <input className="shorten-url" placeholder="https://example.com" onChange={this.handleEnteredUrlChange}/>
           <input type="submit"/>
         </form>
         {this.renderShortenedUrl()}
